@@ -696,6 +696,7 @@ dependencies = [
     { name = "asyncio" },
     { name = "cohere" },
     { name = "mcp", extra = ["cli"] },
+    { name = "pydantic" },
 ]
 
 [package.dev-dependencies]
@@ -720,6 +721,7 @@ requires-dist = [
     { name = "asyncio", specifier = ">=3.4.3" },
     { name = "cohere", specifier = ">=5.14.0" },
     { name = "mcp", extras = ["cli"], specifier = ">=1.4.1" },
+    { name = "pydantic", specifier = ">=2.10.6" },
 ]
 
 [package.metadata.requires-dev]
