@@ -10,10 +10,6 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        python-version: ["3.10", "3.11", "3.12"]
     steps:
       - name: get code
         uses: actions/checkout@v4
@@ -24,7 +20,7 @@ jobs:
           # Install a specific version of uv.
           version: "0.5.21"
           enable-cache: true
-          python-version: ${{ matrix.python-version }}
+          python-version-file: ".python-version"
 
       - name: Install the project
         run: uv sync --all-extras --dev

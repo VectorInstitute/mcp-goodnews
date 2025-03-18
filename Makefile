@@ -12,4 +12,4 @@ test:
 	pytest tests -v --capture=no
 
 coverage: # for ci purposes
-	pytest --cov fed_rag --cov-report=xml tests
+	pytest --cov mcp_goodnews --cov-report=xml tests
