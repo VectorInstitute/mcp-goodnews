@@ -1,2 +1,7 @@
-def test_hello() -> None:
-    assert 2 == 1 + 1
+from mcp.server.fastmcp import FastMCP
+
+from mcp_goodnews.server import mcp
+
+
+def test_mcp() -> None:
+    assert isinstance(mcp, FastMCP)
