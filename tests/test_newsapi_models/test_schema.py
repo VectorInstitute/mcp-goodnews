@@ -8,3 +8,4 @@ def test_newsapiresponse_from_json(response_json: dict[str, Any]) -> None:
 
     assert response.status == "ok"
     assert response.total_results == 10
+    assert all(a.source.id_ == "bbcnews" for a in response.articles)
