@@ -22,10 +22,10 @@ dev = [
 [project]
 name = "mcp-goodnews"
 version = "0.1.0"
-description = "Add your description here"
+description = "An MCP application that delivers curated positive and uplifting news stories."
 readme = "README.md"
 authors = [
-  {email = "andrei@nerdai.io"}
+  {email = "andrei@vectorinstitute.ai"}
 ]
 requires-python = ">=3.11"
 dependencies = [
@@ -34,6 +34,3 @@ dependencies = [
   "mcp[cli]>=1.4.1",
   "pydantic>=2.10.6"
 ]
-
-[project.scripts]
-mcp-goodnews = "mcp_goodnews:main"
