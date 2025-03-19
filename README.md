@@ -12,7 +12,7 @@
 ![GitHub License](https://img.shields.io/github/license/VectorInstitute/mcp-goodnews)
 
 <p align="center">
-  <img src="https://d3ddy8balm3goa.cloudfront.net/vector-mcp-goodnews/logo.svg" alt="MCP Goodnews Logo" width="200"/>
+  <img src="https://d3ddy8balm3goa.cloudfront.net/vector-mcp-goodnews/logo.svg" alt="MCP Goodnews Logo" width="400"/>
 </p>
 
 MCP Goodnews is a simple Model Context Protocol (MCP) application that features
@@ -100,6 +100,14 @@ And you'll want to add an entry under `mcpServers` for `Goodnews`:
 Claude Desktop will use the updated config to build and run the mcp-goodnews server.
 If successful, you will see the hammer tool in the bottom-right corner of the chat
 dialogue window.
+
+<img width="749" alt="image" src="https://github.com/user-attachments/assets/f871451b-cd66-4a75-bdde-35220e485203" />
+
+Clicking the hammer tool icon will bring up a modal that lists available MCP tools.
+You should see `fetch_list_of_goodnews` listed there.
+
+<img width="505" alt="image" src="https://github.com/user-attachments/assets/d68bef03-0926-4ae9-8b4a-00a003097169" />
+
 
 ### Ask Claude for Good News!
 
