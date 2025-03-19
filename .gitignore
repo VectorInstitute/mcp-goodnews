@@ -17,3 +17,6 @@ wheels/
 
 # .env files
 .env
+
+# data
+data
