@@ -7,7 +7,14 @@ from cohere.types import ChatMessages, ChatResponse
 
 from mcp_goodnews.newsapi import Article
 
+# prompt templates
 DEFAULT_GOODNEWS_SYSTEM_PROMPT = "Given the list of articles, return {num_articles_to_return} of the most positive articles."
+DEFAULT_RANK_INSTRUCTION_TEMPLATE = (
+    "Please rank the articles provided below according to their positivity "
+    "based on their `title` as well as the `content` fields of an article."
+    "\n\n<articles>\n\n{formatted_articles}</articles>"
+)
+
 DEFAULT_NUM_ARTICLES_TO_RETURN = 3
 DEFAULT_MODEL_NAME = "command-r-plus-08-2024"
 
@@ -18,10 +25,12 @@ class GoodnewsRanker:
         model_name: str = DEFAULT_MODEL_NAME,
         num_articles_to_return: int = 3,
         system_prompt_template: str = DEFAULT_GOODNEWS_SYSTEM_PROMPT,
+        rank_instruction_template: str = DEFAULT_RANK_INSTRUCTION_TEMPLATE,
     ):
         self.model_name = model_name
         self.num_articles_to_return = num_articles_to_return
         self.system_prompt_template = system_prompt_template
+        self.rank_instruction_template = rank_instruction_template
 
     def _get_client(self) -> AsyncClientV2:
         """Get cohere async client.
@@ -49,10 +58,8 @@ class GoodnewsRanker:
             },
             {
                 "role": "user",
-                "content": (
-                    "Please rank the articles provided below according to their positivity "
-                    "based on their `title` as well as the `content` fields of an article."
-                    f"\n\n<articles>\n\n{self._format_articles(articles)}</articles>"
+                "content": self.rank_instruction_template.format(
+                    formatted_articles=self._format_articles(articles)
                 ),
             },
         ]

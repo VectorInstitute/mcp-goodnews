@@ -16,14 +16,21 @@ def test_goodnews_ranker_init() -> None:
     ranker = GoodnewsRanker(
         model_name="fake model name",
         num_articles_to_return=5,
-        system_prompt_template="fake template {name}",
+        system_prompt_template="fake template {num_articles_to_return}",
+        rank_instruction_template="fake rank template {formatted_articles}",
     )
 
     assert ranker.model_name == "fake model name"
     assert ranker.num_articles_to_return == 5
     assert (
-        ranker.system_prompt_template.format(name="alice")
+        ranker.system_prompt_template.format(num_articles_to_return="alice")
         == "fake template alice"
+    )
+    assert (
+        ranker.rank_instruction_template.format(
+            formatted_articles="fake article"
+        )
+        == "fake rank template fake article"
     )
 
 
