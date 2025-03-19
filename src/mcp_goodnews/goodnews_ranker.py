@@ -74,7 +74,7 @@ class GoodnewsRanker:
         return messages
 
     def _postprocess_chat_response(self, response: ChatResponse) -> str | Any:
-        return response.message.content[0].text
+        return "\n".join(c.text for c in response.message.content)
 
     async def rank_articles(self, articles: list[Article]) -> str:
         """Uses cohere llms to rank a set of articles."""
