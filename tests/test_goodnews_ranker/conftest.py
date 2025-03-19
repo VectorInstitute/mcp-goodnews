@@ -1,4 +1,9 @@
 import pytest
+from cohere.types import (
+    AssistantMessageResponse,
+    ChatResponse,
+    TextAssistantMessageResponseContentItem,
+)
 
 from mcp_goodnews.newsapi import Article, ArticleSource
 
@@ -27,3 +32,22 @@ def example_articles() -> list[Article]:
             content="fake content 2",
         ),
     ]
+
+
+@pytest.fixture()
+def example_chat_response() -> ChatResponse:
+    return ChatResponse(
+        id="1",
+        finish_reason="COMPLETE",
+        prompt=None,
+        message=AssistantMessageResponse(
+            content=[
+                TextAssistantMessageResponseContentItem(
+                    text="mock response 1"
+                ),
+                TextAssistantMessageResponseContentItem(
+                    text="mock response 2"
+                ),
+            ]
+        ),
+    )
