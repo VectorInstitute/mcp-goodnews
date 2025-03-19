@@ -28,7 +28,7 @@ async def fetch_list_of_goodnews(
         articles.extend(top_articles)
 
     # rank the retrieved handlines and get only most positive articles
-    ranker = GoodnewsRanker()
+    ranker = GoodnewsRanker(model_name="command-a-03-2025")
     goodnews = await ranker.rank_articles(articles)
 
     return goodnews  # type: ignore[no-any-return]

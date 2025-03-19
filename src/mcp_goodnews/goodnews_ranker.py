@@ -23,7 +23,7 @@ DEFAULT_RANK_INSTRUCTION_TEMPLATE = (
     "\n\n<articles>\n\n{formatted_articles}</articles>"
 )
 
-DEFAULT_NUM_ARTICLES_TO_RETURN = 5
+DEFAULT_NUM_ARTICLES_TO_RETURN = 3
 DEFAULT_MODEL_NAME = "command-r-plus-08-2024"
 
 
