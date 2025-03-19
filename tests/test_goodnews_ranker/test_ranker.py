@@ -1,5 +1,12 @@
 import json
-from unittest.mock import MagicMock, patch
+from unittest.mock import AsyncMock, MagicMock, patch
+
+import pytest
+from cohere.types import (
+    AssistantMessageResponse,
+    ChatResponse,
+    TextAssistantMessageResponseContentItem,
+)
 
 from mcp_goodnews.goodnews_ranker import GoodnewsRanker
 from mcp_goodnews.newsapi import Article
@@ -58,3 +65,38 @@ def test_goodnews_prepare_chat_messages(
     assert messages[0]["role"] == "system"
     assert messages[1]["role"] == "user"
     assert ranker._format_articles(example_articles) in messages[1]["content"]
+
+
+@pytest.mark.asyncio
+@patch.object(GoodnewsRanker, "_postprocess_chat_response")
+@patch.object(GoodnewsRanker, "_get_client")
+async def test_rank_articles(
+    mock_get_client: MagicMock,
+    mock_postprocess_chat_response: MagicMock,
+    example_articles: list[Article],
+) -> None:
+    # arrange mocks
+    fake_chat_response = ChatResponse(
+        id="1",
+        finish_reason="COMPLETE",
+        prompt=None,
+        message=AssistantMessageResponse(
+            content=[
+                TextAssistantMessageResponseContentItem(text="mock response")
+            ]
+        ),
+    )
+    mock_async_client = AsyncMock()
+    mock_async_client.chat.return_value = fake_chat_response
+    mock_get_client.return_value = mock_async_client
+    ranker = GoodnewsRanker()
+
+    # act
+    await ranker.rank_articles(example_articles)
+
+    # assert
+    mock_postprocess_chat_response.assert_called_once_with(fake_chat_response)
+    mock_async_client.chat.assert_called_once_with(
+        model=ranker.model_name,
+        messages=ranker._prepare_chat_messages(example_articles),
+    )

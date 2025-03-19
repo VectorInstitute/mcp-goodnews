@@ -3,7 +3,7 @@ import os
 from typing import Any
 
 from cohere import AsyncClientV2
-from cohere.types import ChatMessages
+from cohere.types import ChatMessages, ChatResponse
 
 from mcp_goodnews.newsapi import Article
 
@@ -58,11 +58,14 @@ class GoodnewsRanker:
         ]
         return messages
 
-    async def rank_articles(self, articles: list[Article]) -> Any:
+    def _postprocess_chat_response(self, response: ChatResponse) -> str | Any:
+        return response.message.content[0].text
+
+    async def rank_articles(self, articles: list[Article]) -> str:
         """Uses cohere llms to rank a set of articles."""
         co = self._get_client()
-        response = await co.chat(
+        response: ChatResponse = await co.chat(
             model=self.model_name,
             messages=self._prepare_chat_messages(articles),
         )
-        return response
+        return self._postprocess_chat_response(response)
