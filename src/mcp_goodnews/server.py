@@ -1,33 +1,35 @@
 """Goodnews MCP Server"""
 
-import os
+from typing import Literal
 
-import httpx
 from mcp.server.fastmcp import FastMCP
 
 from mcp_goodnews.goodnews_ranker import GoodnewsRanker
-from mcp_goodnews.newsapi import NewsAPIResponse
+from mcp_goodnews.newsapi import get_top_headlines
 
 # Create an MCP server
 mcp = FastMCP("Goodnews")
 
 
 @mcp.tool()
-async def fetch_list_of_goodnews() -> str:
+async def fetch_list_of_goodnews(
+    category: Literal["all", "science", "health", "technology"] = "all",
+) -> str:
     """Fetch a list of headlines and return only top-ranked news based on positivity."""
 
     # make request to top-headlines newsapi
-    async with httpx.AsyncClient() as client:
-        response = await client.get(
-            "https://newsapi.org/v2/top-headlines",
-            params={"apiKey": os.environ.get("NEWS_API_KEY")},
-        )
-        response_json = response.json()
-        news_api_response_obj = NewsAPIResponse.model_validate(response_json)
+    articles = []
+    if category == "all":
+        categories = ["science", "health", "technology"]
+    else:
+        categories = [category]
+    for cat in categories:
+        top_articles = await get_top_headlines(cat)
+        articles.extend(top_articles)
 
     # rank the retrieved handlines and get only most positive articles
-    ranker = GoodnewsRanker()
-    goodnews = await ranker.rank_articles(news_api_response_obj.articles)
+    ranker = GoodnewsRanker(model_name="command-a-03-2025")
+    goodnews = await ranker.rank_articles(articles)
 
     return goodnews  # type: ignore[no-any-return]
 
