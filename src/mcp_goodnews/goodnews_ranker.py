@@ -23,7 +23,7 @@ DEFAULT_RANK_INSTRUCTION_TEMPLATE = (
     "\n\n<articles>\n\n{formatted_articles}</articles>"
 )
 
-DEFAULT_NUM_ARTICLES_TO_RETURN = 3
+DEFAULT_NUM_ARTICLES_TO_RETURN = 5
 DEFAULT_MODEL_NAME = "command-r-plus-08-2024"
 
 
@@ -31,7 +31,7 @@ class GoodnewsRanker:
     def __init__(
         self,
         model_name: str = DEFAULT_MODEL_NAME,
-        num_articles_to_return: int = 3,
+        num_articles_to_return: int = DEFAULT_NUM_ARTICLES_TO_RETURN,
         system_prompt_template: str = DEFAULT_GOODNEWS_SYSTEM_PROMPT,
         rank_instruction_template: str = DEFAULT_RANK_INSTRUCTION_TEMPLATE,
     ):
