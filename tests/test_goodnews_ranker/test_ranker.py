@@ -1,8 +1,6 @@
 import json
 from unittest.mock import MagicMock, patch
 
-from cohere import AsyncClientV2
-
 from mcp_goodnews.goodnews_ranker import GoodnewsRanker
 from mcp_goodnews.newsapi import Article
 
@@ -22,17 +20,17 @@ def test_goodnews_ranker_init() -> None:
     )
 
 
-@patch.object(GoodnewsRanker, "_get_client")
-def test_goodnews_get_client(mock_get_client: MagicMock) -> None:
-    dummy = AsyncClientV2()
-    mock_get_client.return_value = dummy
+@patch("mcp_goodnews.goodnews_ranker.AsyncClientV2")
+def test_goodnews_get_client(
+    mock_async_client_v2: MagicMock,
+) -> None:
     ranker = GoodnewsRanker()
 
     # act
-    co = ranker._get_client()
+    with patch.dict("os.environ", {"COHERE_API_KEY": "fake-key"}):
+        _ = ranker._get_client()
 
-    assert co == dummy
-    mock_get_client.assert_called_once()
+        mock_async_client_v2.assert_called_once_with(api_key="fake-key")
 
 
 def test_goodnews_format_articles(example_articles: list[Article]) -> None:

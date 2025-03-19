@@ -2,7 +2,7 @@ import json
 import os
 from typing import Any
 
-import cohere
+from cohere import AsyncClientV2
 from cohere.types import ChatMessages
 
 from mcp_goodnews.newsapi import Article
@@ -23,12 +23,12 @@ class GoodnewsRanker:
         self.num_articles_to_return = num_articles_to_return
         self.system_prompt_template = system_prompt_template
 
-    def _get_client(self) -> cohere.AsyncClientV2:
+    def _get_client(self) -> AsyncClientV2:
         """Get cohere async client.
 
         NOTE: this requires `COHERE_API_KEY` env variable to be set.
         """
-        return cohere.AsyncClientV2(
+        return AsyncClientV2(
             api_key=os.environ.get("COHERE_API_KEY"),
         )
 
