@@ -1,8 +1,10 @@
+import json
 from unittest.mock import MagicMock, patch
 
 from cohere import AsyncClientV2
 
 from mcp_goodnews.goodnews_ranker import GoodnewsRanker
+from mcp_goodnews.newsapi import Article
 
 
 def test_goodnews_ranker_init() -> None:
@@ -31,3 +33,16 @@ def test_goodnews_get_client(mock_get_client: MagicMock) -> None:
 
     assert co == dummy
     mock_get_client.assert_called_once()
+
+
+def test_goodnews_format_articles(example_articles: list[Article]) -> None:
+    ranker = GoodnewsRanker()
+
+    # act
+    formated_str = ranker._format_articles(example_articles)
+
+    print(formated_str, flush=True)
+    assert formated_str == "\n\n".join(
+        json.dumps(a.model_dump(by_alias=True), indent=4)
+        for a in example_articles
+    )
