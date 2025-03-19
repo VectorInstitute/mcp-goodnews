@@ -7,6 +7,11 @@ on:
     types:
       - opened
       - synchronize
+
+env:
+  NEWS_API_KEY: "mock-news-api-key"
+  COHERE_API_KEY: "mock-cohere-api-key"
+
 jobs:
   test:
     runs-on: ubuntu-latest
