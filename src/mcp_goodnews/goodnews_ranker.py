@@ -12,6 +12,7 @@ DEFAULT_GOODNEWS_SYSTEM_PROMPT = (
     "Given the list of articles, rank them based on their positive sentiment. "
     "Return the top {num_articles_to_return} positive articles.\n\n"
     "Please respond with only a JSON string using the format below:\n\n"
+    "Do not respond with markdown syntax.\n\n"
     "<output-format>\n\n"
     '{{"articles": [{{"title": ..., "description": ... "url": ... , "urlToImage": ...}}]}}\n\n'
     "</output-format>"
