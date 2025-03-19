@@ -8,10 +8,17 @@ from cohere.types import ChatMessages, ChatResponse
 from mcp_goodnews.newsapi import Article
 
 # prompt templates
-DEFAULT_GOODNEWS_SYSTEM_PROMPT = "Given the list of articles, return {num_articles_to_return} of the most positive articles."
+DEFAULT_GOODNEWS_SYSTEM_PROMPT = (
+    "Given the list of articles, rank them based on their positive sentiment. "
+    "Return the top {num_articles_to_return} positive articles.\n\n"
+    "Please respond with only a JSON string using the format below:\n\n"
+    "<output-format>\n\n"
+    '{{"articles": [{{"title": ..., "description": ... "url": ... , "urlToImage": ...}}]}}\n\n'
+    "</output-format>"
+)
 DEFAULT_RANK_INSTRUCTION_TEMPLATE = (
-    "Please rank the articles provided below according to their positivity "
-    "based on their `title` as well as the `content` fields of an article."
+    "Please rank the articles provided in JSON format below according to their positivity "
+    "based on their `title` as well as the `content` fields of an article.\n\n"
     "\n\n<articles>\n\n{formatted_articles}</articles>"
 )
 
