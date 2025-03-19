@@ -1,5 +1,6 @@
 """Goodnews MCP Server"""
 
+from typing import Literal
 
 from mcp.server.fastmcp import FastMCP
 
@@ -11,12 +12,17 @@ mcp = FastMCP("Goodnews")
 
 
 @mcp.tool()
-async def fetch_list_of_goodnews() -> str:
+async def fetch_list_of_goodnews(
+    category: Literal["all", "science", "health", "technology"],
+) -> str:
     """Fetch a list of headlines and return only top-ranked news based on positivity."""
 
     # make request to top-headlines newsapi
     articles = []
-    categories = ["science", "health", "technology"]
+    if category == "all":
+        categories = ["science", "health", "technology"]
+    else:
+        categories = [category]
     for cat in categories:
         top_articles = await get_top_headlines(cat)
         articles.extend(top_articles)

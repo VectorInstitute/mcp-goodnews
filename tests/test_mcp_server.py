@@ -38,7 +38,7 @@ async def test_mcp_server_init() -> None:
 
 
 @pytest.mark.asyncio
-@patch("mcp_goodnews.server.httpx.AsyncClient")
+@patch("mcp_goodnews.newsapi.httpx.AsyncClient")
 @patch.object(GoodnewsRanker, "rank_articles")
 async def test_fetch_list_of_goodnews_tool(
     mock_rank_articles: AsyncMock,
@@ -63,12 +63,16 @@ async def test_fetch_list_of_goodnews_tool(
         "os.environ",
         {"NEWS_API_KEY": "fake-news-key", "COHERE_API_KEY": "fake-cohere-key"},
     ):
-        await fetch_list_of_goodnews()
+        await fetch_list_of_goodnews("science")
 
     # assert
     mock_rank_articles.assert_awaited_once_with(news_api_response_obj.articles)
     mock_httpx_async_client.get.assert_awaited_once_with(
         "https://newsapi.org/v2/top-headlines",
-        params={"apiKey": "fake-news-key"},
+        params={
+            "apiKey": "fake-news-key",
+            "language": "en",
+            "category": "science",
+        },
     )
     mock_httpx_async_cm.return_value.__aenter__.assert_awaited_once()
