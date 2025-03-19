@@ -1,0 +1,136 @@
+{
+    "status": "ok",
+    "totalResults": 10,
+    "articles": [
+      {
+        "source": {
+          "id": "bbcnews",
+          "name": "BBC News"
+        },
+        "author": "BBC News",
+        "title": "Former Putinappointed governor on trial for breaching UK sanctions",
+        "description": "Dmitrii Ovsiannikov is accused of receiving more than £75,000 from his wife and a new Mercedes Benz SUV from his brother.",
+        "url": "https://www.bbc.co.uk/news/articles/clyzp3gn370o",
+        "urlToImage": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/ee28/live/40eb1830042711f0b4f861a094898779.jpg",
+        "publishedAt": "20250318T19:37:23.1089749Z",
+        "content": "On 6 February, Dmitrii Ovsiannikov applied for a Halifax bank account, saying on the form that he was single, but also saying that he was living in Clapham with his wife.\r\nOver the next two and a hal… [+1193 chars]"
+      },
+      {
+        "source": {
+          "id": "bbcnews",
+          "name": "BBC News"
+        },
+        "author": "BBC News",
+        "title": "Under22s will not get incapacity benefits under welfare shakeup",
+        "description": "The move comes as part of an overhaul of the welfare system as the UK's benefits bill rises.",
+        "url": "https://www.bbc.co.uk/news/articles/ckg8pz1g8q9o",
+        "urlToImage": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/f119/live/7bf63b70041e11f08912cb0be0ec7744.jpg",
+        "publishedAt": "20250318T19:22:16.3920345Z",
+        "content": "Under the current system, those over the age of 18 but under state pension age in England, Wales, and Scotland can get incapacity benefits on top of universal credit if the Department of Work and Pen… [+635 chars]"
+      },
+      {
+        "source": {
+          "id": "bbcnews",
+          "name": "BBC News"
+        },
+        "author": "BBC News",
+        "title": "Liz Kendall promises to fix 'broken' benefits system",
+        "description": "Measures including restricting eligibility for disability payments are expected to save £50bn by 2030.",
+        "url": "https://www.bbc.co.uk/news/articles/c89y30nel59o",
+        "urlToImage": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/3b9b/live/7cb676a003fc11f0aae40fb4e77764ff.jpg",
+        "publishedAt": "20250318T18:22:15.234922Z",
+        "content": "Charities and some Labour MPs are worried benefit cuts will push disabled people into poverty. \r\nIn response to such concerns, the government has abandoned the idea of a oneyear freeze to the level … [+1541 chars]"
+      },
+      {
+        "source": {
+          "id": "bbcnews",
+          "name": "BBC News"
+        },
+        "author": "BBC News",
+        "title": "Top US Supreme Court justice rebukes Trump's call to impeach judge",
+        "description": "Chief Justice John Roberts issued a rare statement after Trump called for a judge that halted his deportations to be impeached.",
+        "url": "https://www.bbc.co.uk/news/articles/c8j0vwpkwkxo",
+        "urlToImage": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/1a2d/live/537ff930613911eeb1016f93d6dfbcc2.png",
+        "publishedAt": "20250318T17:07:24.1885679Z",
+        "content": "Justice Roberts, a conservative jurist who wrote the majority opinion in Trump's presidential immunity case last year, rarely issues public statements on political matters.\r\nHis statement comes as Tr… [+1074 chars]"
+      },
+      {
+        "source": {
+          "id": "bbcnews",
+          "name": "BBC News"
+        },
+        "author": "BBC News",
+        "title": "Harshita Brella murder: Pankaj Lamba's parents arrested",
+        "description": "Ms Brella's death has prompted an international manhunt for her husband, Pankaj Lamba.",
+        "url": "https://www.bbc.co.uk/news/articles/c8d48egdp3ro",
+        "urlToImage": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/3251/live/19d1f47003fb11f08a514d8cc989fef0.jpg",
+        "publishedAt": "20250318T16:52:17.9547003Z",
+        "content": "The parents of a man suspected of killing his wife and leaving her body in the boot of a car in London have been arrested, the BBC understands.\r\nIndian Police said Darshan Singh and Sunil Devi face c… [+515 chars]"
+      },
+      {
+        "source": {
+          "id": "bbcnews",
+          "name": "BBC News"
+        },
+        "author": "BBC News",
+        "title": "Gold toilet: Man guilty over £4.8m Blenheim Palace heist",
+        "description": "Five thieves were seen on CCTV stealing the fullyfunctional toilet from Blenheim Palace in 2019.",
+        "url": "https://www.bbc.co.uk/news/articles/cj3nrrmk04mo",
+        "urlToImage": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/b12f/live/132d28a0faa111efbb1e71167c28cbc5.jpg",
+        "publishedAt": "20250318T16:07:20.0943354Z",
+        "content": "A man has been convicted over the theft of a £4.8m gold toilet from an art exhibition at Blenheim Palace.\r\nThieves smashed their way in and ripped out the fullyfunctional toilet, hours after a glamo… [+343 chars]"
+      },
+      {
+        "source": {
+          "id": "bbcnews",
+          "name": "BBC News"
+        },
+        "author": "BBC News",
+        "title": "Germany votes for historic boost to defence and infrastructure spending",
+        "description": "The move alters the German constitution, allowing the country to increase its military spending.",
+        "url": "https://www.bbc.co.uk/news/articles/c62z6gljv2yo",
+        "urlToImage": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/0554/live/82a5f20003db11f09b3609a73999182b.jpg",
+        "publishedAt": "20250318T15:37:21.2047337Z",
+        "content": "However, state government representatives in the upper house, the Bundesrat, still need to approve the moves  also by a twothirds majority  before they officially become law. That vote is set for … [+1590 chars]"
+      },
+      {
+        "source": {
+          "id": "bbcnews",
+          "name": "BBC News"
+        },
+        "author": "BBC News",
+        "title": "What are Pip disability payments and how are they changing?",
+        "description": "The Personal Independence Payment is a benefit that helps cover the extra costs of longterm health conditions.",
+        "url": "https://www.bbc.co.uk/news/articles/cj924xvzrr2o",
+        "urlToImage": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/fa84/live/7e5f5ec003c711f09bb2ab6d3a01d537.jpg",
+        "publishedAt": "20250318T14:37:31.6262338Z",
+        "content": "Pip is paid to people who have difficulty completing everyday tasks or getting around as a result of a longterm physical or mental health condition.\r\nThere are two elements  a daily living componen… [+1895 chars]"
+      },
+      {
+        "source": {
+          "id": "bbcnews",
+          "name": "BBC News"
+        },
+        "author": "BBC News",
+        "title": "Ataglance: Key changes to benefits in welfare shakeup",
+        "description": "How Personal Independence Payments (Pip) and other healthrelated benefits could change under government plans.",
+        "url": "https://www.bbc.co.uk/news/articles/cwyd2p7dz3vo",
+        "urlToImage": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/f87d/live/fc4e120003ee11f0b64647f4457af9f7.jpg",
+        "publishedAt": "20250318T14:37:28.4527422Z",
+        "content": "Pip is paid to people in England and Wales who have difficulty completing everyday tasks or getting around as a result of a longterm physical or mental health condition.\r\nIt is not means tested and … [+674 chars]"
+      },
+      {
+        "source": {
+          "id": "bbcnews",
+          "name": "BBC News"
+        },
+        "author": "BBC News",
+        "title": "North Sea ship collision: First picture of tanker crew released",
+        "description": "Oil tanker Stena Immaculate and cargo ship Solong collided in the North Sea on 10 March.",
+        "url": "https://www.bbc.co.uk/news/articles/cj3npryp6y7o",
+        "urlToImage": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/8ae0/live/5ed8f5c003e011f0af6699ee83e74243.jpg",
+        "publishedAt": "20250318T13:07:20.0153073Z",
+        "content": "The Floridabased maritime operations company, Crowley, which was managing the tanker, posted a photo on social media showing 19 crew members.\r\nIn a statement, it said: \"Our deepest gratitude and res… [+717 chars]"
+      }
+    ]
+  }
