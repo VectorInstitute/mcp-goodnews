@@ -11,6 +11,10 @@
 [![Release](https://github.com/VectorInstitute/mcp-goodnews/actions/workflows/release.yml/badge.svg)](https://github.com/VectorInstitute/mcp-goodnews/actions/workflows/release.yml)
 ![GitHub License](https://img.shields.io/github/license/VectorInstitute/mcp-goodnews)
 
+<p align="center">
+  <img src="https://d3ddy8balm3goa.cloudfront.net/vector-mcp-goodnews/logo.svg" alt="MCP Goodnews Logo" width="200"/>
+</p>
+
 MCP Goodnews is a simple Model Context Protocol (MCP) application that features
 a server for getting good, positive, and uplifting news. This tool fetches news
 articles from the [NewsAPI](https://newsapi.org/) and uses a Cohere LLM to rank
