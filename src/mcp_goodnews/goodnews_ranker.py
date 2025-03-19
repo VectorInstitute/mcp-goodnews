@@ -1,4 +1,3 @@
-import asyncio
 import json
 import os
 from typing import Any
@@ -49,7 +48,7 @@ class GoodnewsRanker:
                 ),
             },
             {
-                "role": "system",
+                "role": "user",
                 "content": (
                     "Please rank the articles provided below according to their positivity "
                     "based on their `title` as well as the `content` fields of an article."
@@ -67,20 +66,3 @@ class GoodnewsRanker:
             messages=self._prepare_chat_messages(articles),
         )
         return response
-
-
-if __name__ == "__main__":
-    from pathlib import Path
-
-    from mcp_goodnews.newsapi import NewsAPIResponse
-
-    data_path = Path(__file__).parents[2] / "data"
-    with open(data_path / "example_response.json") as f:
-        response_dict = json.load(f)
-        newsapi_response = NewsAPIResponse.model_validate(response_dict)
-
-    ranker = GoodnewsRanker()
-    ranked_articles = asyncio.run(
-        ranker.rank_articles(newsapi_response.articles)
-    )
-    print(ranked_articles)

@@ -41,8 +41,22 @@ def test_goodnews_format_articles(example_articles: list[Article]) -> None:
     # act
     formated_str = ranker._format_articles(example_articles)
 
-    print(formated_str, flush=True)
     assert formated_str == "\n\n".join(
         json.dumps(a.model_dump(by_alias=True), indent=4)
         for a in example_articles
     )
+
+
+def test_goodnews_prepare_chat_messages(
+    example_articles: list[Article],
+) -> None:
+    ranker = GoodnewsRanker()
+
+    # act
+    messages = ranker._prepare_chat_messages(example_articles)
+
+    # assert
+    assert len(messages) == 2  # system prompt and user prompt
+    assert messages[0]["role"] == "system"
+    assert messages[1]["role"] == "user"
+    assert ranker._format_articles(example_articles) in messages[1]["content"]
