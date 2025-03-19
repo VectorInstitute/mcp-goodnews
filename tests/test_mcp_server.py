@@ -1,5 +1,5 @@
 from typing import Any
-from unittest.mock import AsyncMock, MagicMock, patch
+from unittest.mock import AsyncMock, MagicMock, _Call, patch
 
 import pytest
 
@@ -41,6 +41,81 @@ async def test_mcp_server_init() -> None:
 @patch("mcp_goodnews.newsapi.httpx.AsyncClient")
 @patch.object(GoodnewsRanker, "rank_articles")
 async def test_fetch_list_of_goodnews_tool(
+    mock_rank_articles: AsyncMock,
+    mock_httpx_async_cm: AsyncMock,
+    example_news_response: dict[str, Any],
+) -> None:
+    # arrange mocks
+    mock_rank_articles.return_value = "fake good news"
+    mock_httpx_response = MagicMock()
+    mock_httpx_response.json.return_value = example_news_response
+    mock_httpx_async_client = AsyncMock()
+    mock_httpx_async_client.get.return_value = mock_httpx_response
+    mock_httpx_async_cm.return_value.__aenter__.return_value = (
+        mock_httpx_async_client
+    )
+    news_api_response_obj = NewsAPIResponse.model_validate(
+        example_news_response
+    )
+
+    # act
+    with patch.dict(
+        "os.environ",
+        {"NEWS_API_KEY": "fake-news-key", "COHERE_API_KEY": "fake-cohere-key"},
+    ):
+        await fetch_list_of_goodnews()
+
+    # assert
+    calls = [
+        _Call(
+            (
+                ("https://newsapi.org/v2/top-headlines",),
+                {
+                    "params": {
+                        "apiKey": "fake-news-key",
+                        "language": "en",
+                        "category": "science",
+                    }
+                },
+            )
+        ),
+        _Call(
+            (
+                ("https://newsapi.org/v2/top-headlines",),
+                {
+                    "params": {
+                        "apiKey": "fake-news-key",
+                        "language": "en",
+                        "category": "health",
+                    }
+                },
+            )
+        ),
+        _Call(
+            (
+                ("https://newsapi.org/v2/top-headlines",),
+                {
+                    "params": {
+                        "apiKey": "fake-news-key",
+                        "language": "en",
+                        "category": "technology",
+                    }
+                },
+            )
+        ),
+    ]
+    mock_rank_articles.call_count
+    mock_rank_articles.assert_awaited_once_with(
+        news_api_response_obj.articles * 3
+    )
+    mock_httpx_async_client.get.assert_has_awaits(calls)
+    assert mock_httpx_async_cm.return_value.__aenter__.call_count == 3
+
+
+@pytest.mark.asyncio
+@patch("mcp_goodnews.newsapi.httpx.AsyncClient")
+@patch.object(GoodnewsRanker, "rank_articles")
+async def test_fetch_list_of_goodnews_tool_single_category(
     mock_rank_articles: AsyncMock,
     mock_httpx_async_cm: AsyncMock,
     example_news_response: dict[str, Any],

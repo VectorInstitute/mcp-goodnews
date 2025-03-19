@@ -13,7 +13,7 @@ mcp = FastMCP("Goodnews")
 
 @mcp.tool()
 async def fetch_list_of_goodnews(
-    category: Literal["all", "science", "health", "technology"],
+    category: Literal["all", "science", "health", "technology"] = "all",
 ) -> str:
     """Fetch a list of headlines and return only top-ranked news based on positivity."""
 
