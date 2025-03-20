@@ -45,7 +45,7 @@ perform sentiment analysis in a zero-shot setting.
 
 ```bash
 # Clone the repository
-git clone https://github.com/username/mcp-goodnews.git
+git clone https://github.com/VectorInstitute/mcp-goodnews.git
 ```
 
 In the next step, we'll need to provide the absolute path to the location of this
@@ -108,7 +108,6 @@ You should see `fetch_list_of_goodnews` listed there.
 
 <img width="505" alt="image" src="https://github.com/user-attachments/assets/d68bef03-0926-4ae9-8b4a-00a003097169" />
 
-
 ### Ask Claude for Good News!
 
 Example prompts:
@@ -126,7 +125,7 @@ Example prompts:
 
 ## License
 
-[Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0)
+[Apache 2.0](./LICENSE)
 
 ---
 
