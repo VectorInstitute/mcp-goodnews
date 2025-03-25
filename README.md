@@ -20,6 +20,8 @@ a server for getting good, positive, and uplifting news. This tool fetches news
 articles from the [NewsAPI](https://newsapi.org/) and uses a Cohere LLM to rank
 and return the top news articles based on positive sentiment.
 
+Read the [blog post](https://medium.com/data-science-collective/goodnews-mcp-good-news-at-your-fingertips-d6cda34d558d) on Medium!
+
 ## Motivation
 
 In a world where negative news often dominates headlines, Goodnews MCP aims to
@@ -108,7 +110,7 @@ You should see `fetch_list_of_goodnews` listed there.
 
 <img width="505" alt="image" src="https://github.com/user-attachments/assets/d68bef03-0926-4ae9-8b4a-00a003097169" />
 
-### Ask Claude for Good News!
+### Ask Claude for Good News
 
 Example prompts:
 
