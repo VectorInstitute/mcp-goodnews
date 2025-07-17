@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/vectorinstitute-mcp-goodnews-badge.png)](https://mseep.ai/app/vectorinstitute-mcp-goodnews)
+
 <!-- markdownlint-disable-file MD033 -->
 
 # MCP Goodnews
